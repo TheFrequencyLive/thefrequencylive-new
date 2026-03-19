@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="Freq.PNG">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequency Nation | The Frequency Live — Final Authority</title>
+    <meta name="description" content="Join the global prayer movement establishing God's authority across nations. Daily live intercession at 6AM, 2PM, and 10PM WAT.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- PayPal SDK for book purchases -->
+    <script src="https://www.paypal.com/sdk/js?client-id=ASctrc6u_C5jeRmI7Al1Vxdt0bD-rKkzrwFdThdvuwrbYzK5Q9mOWWd9niaTllVupct0KMAUjCyBX0ml&currency=USD&intent=capture" defer></script>
+    
+    <style>
+        :root {
+            --primary-blue: #1E40AF;
+            --primary-blue-dark: #1E3A8A;
+            --primary-blue-light: #3B82F6;
+            --accent-gold: #D97706;
+            --white: #FFFFFF;
+            --gray-50: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-300: #CBD5E1;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1E293B;
+            --gray-900: #0F172A;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --error: #EF4444;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: var(--white);
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .text-center { text-align: center; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mt-8 { margin-top: 2rem; }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-logo {
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--primary-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            position: relative;
+        }
+        
+        .nav-links a:hover { color: var(--primary-blue); }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after { width: 100%; }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-800);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 100%);
+            color: var(--white);
+            padding: 140px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.4;
+        }
+        
+        .hero-content { position: relative; z-index: 1; }
+        
+        .doctrine-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .doctrine-badge::before { content: '◆'; color: var(--accent-gold); }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        .slogan {
+            font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 24px;
+        }
+        
+        .hero-text {
+            font-size: 1.125rem;
+            max-width: 640px;
+            margin: 0 auto 40px;
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-blue);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+            background: var(--gray-50);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--white);
+        }
+        
+        .btn-accent {
+            background: var(--accent-gold);
+            color: var(--white);
+        }
+        
+        .btn-accent:hover {
+            background: #B45309;
+            transform: translateY(-2px);
+        }
+        
+        .live-status-bar {
+            background: var(--gray-900);
+            color: var(--white);
+            padding: 12px 0;
+            position: relative;
+            z-index: 100;
+        }
+        
+        .live-status-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: #EF4444;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        
+        .next-watch { font-size: 0.875rem; opacity: 0.8; }
+        
+        .live-section {
+            background: var(--gray-100);
+            padding: 60px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 16px;
+            box-shadow: var(--shadow-xl);
+            background: var(--gray-900);
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--gray-800), var(--gray-900));
+            color: var(--white);
+            cursor: pointer;
+        }
+        
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            transition: transform 0.3s;
+        }
+        
+        .play-button:hover { transform: scale(1.1); }
+        
+        .play-button::after {
+            content: '▶';
+            font-size: 2rem;
+            margin-left: 4px;
+        }
+        
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        
+        .stat-box {
+            background: var(--white);
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-200);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+        
+        section { padding: 80px 0; }
+        
+        h2 {
+            font-size: clamp(1.875rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--gray-900);
+            line-height: 1.2;
+        }
+        
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+        
+        .rhythm-section { background: var(--white); }
+        
+        .rhythm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        
+        .rhythm-card {
+            background: var(--gray-50);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .rhythm-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-blue);
+            transition: width 0.3s;
+        }
+        
+        .rhythm-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-blue-light);
+        }
+        
+        .rhythm-card:hover::before { width: 100%; opacity: 0.05; }
+        
+        .time-badge {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .rhythm-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--gray-900);
+        }
+        
+        .rhythm-desc { color: var(--gray-600); line-height: 1.6; }
+        
+        .tiers-section { background: var(--gray-50); }
+        
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+        
+        .tier-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px 32px;
+            box-shadow: var(--shadow-md);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .tier-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .tier-card.featured {
+            border-color: var(--primary-blue);
+            transform: scale(1.02);
+        }
+        
+        .tier-card.featured:hover { transform: scale(1.02) translateY(-8px); }
+        
+        .featured-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .tier-header { text-align: center; margin-bottom: 24px; }
+        
+        .tier-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+        
+        .tier-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            line-height: 1;
+        }
+        
+        .tier-price span {
+            font-size: 1rem;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+        
+        .tier-desc {
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 32px;
+            flex-grow: 1;
+        }
+        
+        .tier-features { list-style: none; margin-bottom: 32px; }
+        
+        .tier-features li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            color: var(--gray-700);
+        }
+        
+        .tier-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 700;
+        }
+        
+        .btn-tier {
+            display: block;
+            text-align: center;
+            padding: 14px 28px;
+            background: var(--gray-900);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-tier:hover {
+            background: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+        
+        .tier-card.featured .btn-tier { background: var(--primary-blue); }
+        
+        .alt-platforms {
+            margin-top: 16px;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+        
+        .alt-platforms a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .alt-platforms a:hover { text-decoration: underline; }
+        
+        .flexible-box {
+            background: linear-gradient(135deg, var(--primary-blue-dark), var(--primary-blue));
+            color: var(--white);
+            border-radius: 20px;
+            padding: 48px;
+            text-align: center;
+        }
+        
+        .flexible-box h3 { font-size: 1.875rem; margin-bottom: 16px; }
+        
+        .flexible-box p {
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            font-size: 1.125rem;
+        }
+        
+        .flexible-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-flex {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-flex-white {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+        
+        .btn-flex-white:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-flex-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .btn-flex-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--white);
+        }
+        
+        .email-section {
+            background: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .email-section h2 { color: var(--white); }
+        .email-section .section-subtitle { color: rgba(255, 255, 255, 0.8); }
+        
+        .books-section { background: var(--white); }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+        
+        .book-card {
+            background: var(--gray-50);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .book-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-blue-light);
+            transform: translateY(-4px);
+        }
+        
+        .book-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .book-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--gray-900);
+        }
+        
+        .book-desc {
+            color: var(--gray-600);
+            margin-bottom: 20px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .book-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+        
+        .prayer-section { background: var(--gray-100); }
+        
+        .prayer-form {
+            max-width: 600px;
+            margin: 0 auto 48px;
+            background: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .form-group { margin-bottom: 20px; }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--gray-700);
+            font-size: 0.875rem;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+            background: var(--white);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        
+        @media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
+        
+        .testimonials-section { background: var(--white); }
+        
+        .testimonial-card {
+            background: var(--gray-50);
+            padding: 32px;
+            border-radius: 16px;
+            border-left: 4px solid var(--accent-gold);
+            margin-bottom: 24px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.125rem;
+            color: var(--gray-700);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+        
+        .testimonial-author { font-weight: 600; color: var(--gray-900); }
+        
+        .testimonial-location { font-size: 0.875rem; color: var(--gray-500); }
+        
+        /* ============================================
+           MODAL STYLES
+           ============================================ */
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.8);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        @keyframes modalSlideIn {
+            from { 
+                transform: translateY(-30px) scale(0.95); 
+                opacity: 0; 
+            }
+            to { 
+                transform: translateY(0) scale(1); 
+                opacity: 1; 
+            }
+        }
+        
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            width: 36px;
+            height: 36px;
+            background: var(--gray-100);
+            border: none;
+            border-radius: 8px;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--gray-600);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            line-height: 1;
+            padding: 0;
+        }
+        
+        .close:hover { 
+            background: var(--gray-200);
+            color: var(--gray-900);
+            transform: rotate(90deg);
+        }
+        
+        /* ============================================
+           FOOTER STYLING
+           ============================================ */
+        
+        footer {
+            background: var(--gray-900);
+            color: var(--gray-300);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h4 {
+            color: var(--white);
+            font-size: 1rem;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        
+        .footer-section p {
+            color: var(--gray-300);
+            line-height: 1.6;
+        }
+        
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 12px; }
+        
+        .footer-section a {
+            color: var(--gray-200);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            display: inline-block;
+        }
+        
+        .footer-section a:hover { 
+            color: var(--white); 
+            transform: translateX(4px);
+        }
+        
+        .footer-section a[href^="mailto:"] {
+            color: var(--primary-blue-light);
+            word-break: break-all;
+        }
+        
+        .footer-section a[href^="mailto:"]:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 16px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--gray-700);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid var(--gray-700);
+            padding-top: 30px;
+            text-align: center;
+        }
+        
+        .doctrine-footer {
+            color: var(--accent-gold);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        
+        .footer-bottom p {
+            color: var(--gray-300);
+        }
+        
+        .footer-bottom p:last-child {
+            color: var(--gray-400);
+            font-size: 0.875rem;
+        }
+        
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--gray-900);
+            color: var(--white);
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-xl);
+            display: none;
+            align-items: center;
+            gap: 12px;
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .toast.show { display: flex; }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn { display: block; }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 24px;
+                gap: 16px;
+                border-top: 1px solid var(--gray-200);
+                box-shadow: var(--shadow-lg);
+            }
+            
+            .nav-links.active { display: flex; }
+            .hero { padding: 120px 0 80px; }
+            .flexible-box { padding: 32px 24px; }
+            .tier-card.featured { transform: none; }
+            .tier-card.featured:hover { transform: translateY(-8px); }
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        :focus-visible {
+            outline: 2px solid var(--primary-blue);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <span id="toast-message">Message</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-content">
+            <a href="#" class="nav-logo">
+                <span>◆</span>
+                <span>Frequency Nation</span>
+            </a>
+            <button type="button" class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#live">Watch Live</a></li>
+                <li><a href="#rhythm">Prayer Rhythm</a></li>
+                <li><a href="#join">Join Us</a></li>
+                <li><a href="#prayer">Prayer Wall</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Live Status Bar -->
+    <div class="live-status-bar" style="margin-top: 64px;">
+        <div class="container">
+            <div class="live-status-content">
+                <div class="live-indicator">
+                    <span class="live-dot"></span>
+                    <span>NEXT WATCH IN: <span id="countdown">--:--:--</span></span>
+                </div>
+                <div class="next-watch">6AM • 2PM • 10PM WAT Daily</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-content">
+            <div class="doctrine-badge">The Excellency of God</div>
+            <h1>Frequency Nation</h1>
+            <p class="slogan">Final Authority</p>
+            <p class="hero-text">
+                Join the global prayer movement establishing God's authority across nations. 
+                Daily live intercession at 6AM, 2PM, and 10PM WAT. 
+                Stand as Watchman. Establish authority. Advance the Frequency.
+            </p>
+            <div class="btn-group">
+                <a href="#join" class="btn btn-primary">
+                    <span>⚡</span> Join the Watch — $19/month
+                </a>
+                <a href="#live" class="btn btn-secondary">
+                    <span>▶</span> Watch Live Prayer
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Live Section -->
+    <section class="live-section" id="live">
+        <div class="container">
+            <div class="section-header">
+                <h2>Live Broadcast</h2>
+                <p class="section-subtitle">Join the global altar burning across time zones</p>
+            </div>
+            <div class="video-wrapper" id="videoWrapper">
+                <div class="video-placeholder" onclick="loadVideo()">
+                    <div class="play-button"></div>
+                    <p>Click to load live stream</p>
+                    <p style="font-size: 0.875rem; opacity: 0.7; margin-top: 8px;">YouTube Live • Frequency Nation</p>
+                </div>
+            </div>
+            <div class="quick-stats">
+                <div class="stat-box">
+                    <div class="stat-number" id="statIntercessors">47</div>
+                    <div class="stat-label">Active Intercessors</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="statNations">12</div>
+                    <div class="stat-label">Nations Represented</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="statPrayers">1,247</div>
+                    <div class="stat-label">Prayers Lifted</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Authority Coverage</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rhythm Section -->
+    <section class="rhythm-section" id="rhythm">
+        <div class="container">
+            <h2 class="text-center">The 6-2-10 Authority Rhythm</h2>
+            <p class="section-subtitle text-center">
+                This is not a schedule. This is spiritual technology—unceasing intercession that keeps doors open where darkness held ground.
+            </p>
+            <div class="rhythm-grid">
+                <div class="rhythm-card">
+                    <div class="time-badge">6:00 AM</div>
+                    <h3 class="rhythm-title">Dawn Authority</h3>
+                    <p class="rhythm-desc">Establishing the day's dominion. Alignment and territorial claim. Setting the spiritual temperature for the entire day.</p>
+                </div>
+                <div class="rhythm-card">
+                    <div class="time-badge">2:00 PM</div>
+                    <h3 class="rhythm-title">Midday Alignment</h3>
+                    <p class="rhythm-desc">Reinforcement and jurisdictional maintenance across nations. Breaking afternoon strongholds and sustaining momentum.</p>
+                </div>
+                <div class="rhythm-card">
+                    <div class="time-badge">10:00 PM</div>
+                    <h3 class="rhythm-title">Night Watch</h3>
+                    <p class="rhythm-desc">Intercession, protection, and advancement while darkness seems deepest. The watchman hour of maximum impact.</p>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="#join" class="btn btn-accent">Stand as Watchman — $19/month</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tiers Section -->
+    <section class="tiers-section" id="join">
+        <div class="container">
+            <h2 class="text-center">Stand in Frequency Nation</h2>
+            <p class="section-subtitle text-center">Choose your governmental assignment. Every stand transmits authority.</p>
+            <div class="tiers-grid">
+                <div class="tier-card">
+                    <div class="tier-header">
+                        <div class="tier-name">Watchman</div>
+                        <div class="tier-price">$19<span>/month</span></div>
+                    </div>
+                    <p class="tier-desc">Guard the Frequency. Enforce intercession. Exercise Final Authority through daily transmission and alert.</p>
+                    <ul class="tier-features">
+                        <li>Daily prayer rhythm access</li>
+                        <li>Night watch notifications</li>
+                        <li>Community prayer wall</li>
+                        <li>Monthly authority report</li>
+                    </ul>
+                    <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-57B45923YX221973PNGGLSMI" class="btn-tier">Join Watchman</a>
+                    <div class="alt-platforms">Also: <a href="https://ko-fi.com/thefrequencylive">Ko-fi</a> • <a href="https://buymeacoffee.com/thefequencylive">BMC</a></div>
+                </div>
+                <div class="tier-card featured">
+                    <div class="featured-badge">Most Popular</div>
+                    <div class="tier-header">
+                        <div class="tier-name">Ambassador</div>
+                        <div class="tier-price">$50<span>/month</span></div>
+                    </div>
+                    <p class="tier-desc">Represent heaven's will. Carry authority into your territory. Command outcomes as delegated envoy of Final Authority.</p>
+                    <ul class="tier-features">
+                        <li>Everything in Watchman</li>
+                        <li>Weekly strategy sessions</li>
+                        <li>Territorial mapping tools</li>
+                        <li>Direct intercessor access</li>
+                        <li>Authority resource library</li>
+                    </ul>
+                    <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-5U022920RB021803SNGGLUAY" class="btn-tier">Become Ambassador</a>
+                    <div class="alt-platforms">Also: <a href="https://ko-fi.com/thefrequencylive">Ko-fi</a> • <a href="https://buymeacoffee.com/thefequencylive">BMC</a></div>
+                </div>
+                <div class="tier-card">
+                    <div class="tier-header">
+                        <div class="tier-name">Pillar</div>
+                        <div class="tier-price">$100<span>/month</span></div>
+                    </div>
+                    <p class="tier-desc">Uphold the doctrine of Excellency. Sustain global transmission. Operate as foundational government for Frequency Nation.</p>
+                    <ul class="tier-features">
+                        <li>Everything in Ambassador</li>
+                        <li>Private counsel sessions</li>
+                        <li>Founder's circle access</li>
+                        <li>Annual retreat inclusion</li>
+                        <li>Name on the altar wall</li>
+                    </ul>
+                    <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-97441926N2003480MNGGLVLA" class="btn-tier">Stand as Pillar</a>
+                    <div class="alt-platforms">Also: <a href="https://ko-fi.com/thefrequencylive">Ko-fi</a> • <a href="https://buymeacoffee.com/thefequencylive">BMC</a></div>
+                </div>
+            </div>
+            <div class="flexible-box">
+                <h3>Transmit Freely</h3>
+                <p>Not ready for monthly assignment? Give any amount. Fuel the Frequency. Every transmission advances the authority—no tier required.</p>
+                <div class="flexible-buttons">
+                    <a href="https://www.paypal.com/paypalme/FrequencyNation" class="btn-flex btn-flex-white"><span>💳</span> Give Any Amount (PayPal)</a>
+                    <a href="https://buymeacoffee.com/thefequencylive" class="btn-flex btn-flex-outline"><span>☕</span> Buy Me a Coffee ($5)</a>
+                    <a href="https://ko-fi.com/thefrequencylive" class="btn-flex btn-flex-outline"><span>💝</span> Ko-fi Support</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prayer Section -->
+    <section class="prayer-section" id="prayer">
+        <div class="container">
+            <h2 class="text-center">Global Prayer Wall</h2>
+            <p class="section-subtitle text-center">Submit your prayer request. Join intercessors worldwide standing in agreement.</p>
+            <form class="prayer-form" id="prayerForm" onsubmit="submitPrayer(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="prayerName">Name</label>
+                        <input type="text" id="prayerName" placeholder="Your name or Anonymous">
+                    </div>
+                    <div class="form-group">
+                        <label for="prayerEmail">Email (private)</label>
+                        <input type="email" id="prayerEmail" placeholder="For prayer updates">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="prayerLocation">Location</label>
+                    <input type="text" id="prayerLocation" placeholder="City, Country">
+                </div>
+                <div class="form-group">
+                    <label for="prayerCategory">Category</label>
+                    <select id="prayerCategory">
+                        <option value="Healing">Healing</option>
+                        <option value="Family">Family Restoration</option>
+                        <option value="Financial">Financial Breakthrough</option>
+                        <option value="Nation">Nation/ Territory</option>
+                        <option value="Spiritual">Spiritual Growth</option>
+                        <option value="Deliverance">Deliverance</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="prayerText">Prayer Request</label>
+                    <textarea id="prayerText" rows="4" placeholder="Share your prayer need..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label><input type="checkbox" id="isPublic" checked style="margin-right: 8px;">Share on public prayer wall (first name only)</label>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;" id="prayerSubmitBtn"><span>🙏</span> Submit Prayer Request</button>
+            </form>
+            <div class="quick-stats" id="recentPrayers">
+                <div class="stat-box" style="text-align: left;">
+                    <div style="font-size: 0.875rem; color: var(--gray-500); margin-bottom: 8px;">Recent Prayer</div>
+                    <p style="font-style: italic; color: var(--gray-700);">"Healing for my mother's cancer diagnosis..."</p>
+                    <small style="color: var(--primary-blue);">— Sarah T. • 2 hours ago</small>
+                </div>
+                <div class="stat-box" style="text-align: left;">
+                    <div style="font-size: 0.875rem; color: var(--gray-500); margin-bottom: 8px;">Recent Prayer</div>
+                    <p style="font-style: italic; color: var(--gray-700);">"Financial breakthrough for my business..."</p>
+                    <small style="color: var(--primary-blue);">— Michael R. • 5 hours ago</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="text-center">Testimonies of Authority</h2>
+            <p class="section-subtitle text-center">Reports of breakthrough from the Frequency Nation community.</p>
+            <div id="testimoniesContainer">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"After joining the Night Watch prayer, I received healing in my body that doctors couldn't explain. The Frequency family stood with me in faith, and three weeks later, my scans came back clear. This is Final Authority in action."</p>
+                    <div class="testimonial-author">Sarah M.</div>
+                    <div class="testimonial-location">Texas, USA • Healing Testimony</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"My marriage was restored through the intercession of this community. Three months of consistent prayer broke every chain of division. We are now stronger than ever, serving together in ministry."</p>
+                    <div class="testimonial-author">David K.</div>
+                    <div class="testimonial-location">Ontario, Canada • Restoration Testimony</div>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <button type="button" onclick="showTestimonyForm()" class="btn btn-secondary" style="border: 2px solid var(--gray-300); color: var(--gray-700); background: transparent; cursor: pointer;">Share Your Testimony</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimony Modal -->
+    <div id="testimonyModal" class="modal" onclick="closeTestimonyModalOutside(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button type="button" class="close" onclick="closeTestimonyModal()" aria-label="Close modal">&times;</button>
+            <h2 style="margin-bottom: 20px; color: var(--gray-900);">Share Your Testimony</h2>
+            <form id="testimonyForm" onsubmit="submitTestimony(event)">
+                <div class="form-group">
+                    <label for="testimonyName">Your Name *</label>
+                    <input type="text" id="testimonyName" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="testimonyLocation">Your Location</label>
+                    <input type="text" id="testimonyLocation" placeholder="City, Country">
+                </div>
+                <div class="form-group">
+                    <label for="testimonyCategory">Category *</label>
+                    <select id="testimonyCategory" required>
+                        <option value="">Select a category...</option>
+                        <option value="Healing">Healing</option>
+                        <option value="Deliverance">Deliverance</option>
+                        <option value="Financial">Financial Breakthrough</option>
+                        <option value="Family">Family Restoration</option>
+                        <option value="Guidance">Divine Guidance</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="testimonyText">Your Testimony *</label>
+                    <textarea id="testimonyText" rows="5" required placeholder="Share what God has done in your life..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;" id="testimonySubmitBtn">
+                    <span>✨</span> Submit Testimony
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Books Section -->
+    <section class="books-section" id="resources">
+        <div class="container">
+            <h2 class="text-center">Authority Resources</h2>
+            <p class="section-subtitle text-center">Deepen your stand with structured intercession frameworks.</p>
+            <div class="books-grid">
+                
+                <div class="book-card">
+                    <div class="book-icon">📖</div>
+                    <h3 class="book-title">Authority Prayer Manual</h3>
+                    <p class="book-desc">The operational framework for spiritual dominion. Decree structure, jurisdictional mapping, 6-2-10 architecture.</p>
+                    <div class="book-price">$12.00</div>
+                    <button class="btn-tier buy-button" onclick="initiateCheckout('authority-manual')">Get Manual</button>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-icon">🌍</div>
+                    <h3 class="book-title">Prayers for Immigrants</h3>
+                    <p class="book-desc">Divine settlement under the Excellency of God. Favor, legal stability, territorial alignment, protection.</p>
+                    <div class="book-price">$12.00</div>
+                    <button class="btn-tier buy-button" onclick="initiateCheckout('prayers-immigrants')">Get Prayers</button>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content" style="max-width: 500px;">
+            <button type="button" class="close" onclick="closeCheckoutModal()">&times;</button>
+            <h3 style="margin-bottom: 20px; color: var(--gray-900);">Complete Your Purchase</h3>
+            <p style="color: var(--gray-600); margin-bottom: 16px;">Enter your email to receive the download link after payment:</p>
+            <div class="form-group">
+                <input type="email" id="buyerEmail" placeholder="your@email.com" required style="width: 100%; padding: 12px; border: 1px solid var(--gray-300); border-radius: 8px;">
+            </div>
+            <div id="paypal-button-container" style="margin-top: 20px;"></div>
+            <p style="font-size: 12px; color: var(--gray-500); margin-top: 16px;">Secure payment processed by PayPal. You'll receive your download link via email immediately after purchase.</p>
+        </div>
+    </div>
+
+    <!-- Email Section -->
+    <section class="email-section">
+        <div class="container">
+            <h2>Receive Authority Prayers</h2>
+            <p class="section-subtitle">Join 7 Days of Night Authority Prayers and global alignment updates from Frequency Nation.</p>
+            <a href="https://the-frequency-live.kit.com/" class="btn btn-primary"><span>📧</span> Join Frequency Nation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Frequency Nation</h4>
+                    <p>Global prayer altar burning at 6AM, 2PM, 10PM WAT. Establishing Final Authority across nations through unceasing intercession.</p>
+                    <div class="social-links">
+                        <a href="https://www.tiktok.com/@thefrequencylive1" aria-label="TikTok">TT</a>
+                        <a href="https://www.facebook.com/share/1H7chquiTd/" aria-label="Facebook">FB</a>
+                        <a href="https://www.instagram.com/thefrequencylive1" aria-label="Instagram">IG</a>
+                        <a href="https://x.com/TheFreqHQlive" aria-label="Twitter/X">X</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#live">Watch Live</a></li>
+                        <li><a href="#rhythm">Prayer Schedule</a></li>
+                        <li><a href="#join">Join the Watch</a></li>
+                        <li><a href="#prayer">Prayer Wall</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Authority Manual</a></li>
+                        <li><a href="#">Prayer Archives</a></li>
+                        <li><a href="#">Testimonies</a></li>
+                        <li><a href="#">Partner Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:admin@thefrequencylive.org">admin@thefrequencylive.org</a></li>
+                        <li><a href="#prayer">Submit Prayer Request</a></li>
+                        <li><a href="#">Partner Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="doctrine-footer">The Excellency of God</div>
+                <p style="color: var(--white); font-weight: 600; margin-bottom: 8px;">Final Authority</p>
+                <p>&copy; 2026 The Frequency Live. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+// ============================================
+// CONFIGURATION
+// ============================================
+
+const API_BASE = '/.netlify/functions';
+
+// Product definitions for book sales
+const PRODUCTS = {
+    'authority-manual': {
+        name: 'Authority Prayer Manual',
+        price: '12.00',
+        sku: 'AUTH-MANUAL-001',
+        file: 'authority-prayer-manual.pdf'
+    },
+    'prayers-immigrants': {
+        name: 'Prayers for Immigrants',
+        price: '12.00',
+        sku: 'PRAY-IMM-001',
+        file: 'prayers-for-immigrants.pdf'
+    }
+};
+
+let currentProduct = null;
+
+// ============================================
+// UTILITY FUNCTIONS
+// ============================================
+
+function showToast(message, isError = false) {
+    const toast = document.getElementById('toast');
+    document.getElementById('toast-message').textContent = message;
+    toast.style.background = isError ? '#EF4444' : '#1E293B';
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4000);
+}
+
+function getTimeAgo(date) {
+    const seconds = Math.floor((new Date() - date) / 1000);
+    const intervals = { year: 31536000, month: 2592000, week: 604800, day: 86400, hour: 3600, minute: 60 };
+    for (let [unit, secondsInUnit] of Object.entries(intervals)) {
+        const interval = Math.floor(seconds / secondsInUnit);
+        if (interval >= 1) return interval === 1 ? `1 ${unit} ago` : `${interval} ${unit}s ago`;
+    }
+    return 'just now';
+}
+
+// ============================================
+// NAVIGATION & UI
+// ============================================
+
+function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('active');
+}
+
+function loadVideo() {
+    document.getElementById('videoWrapper').innerHTML = `
+        <iframe src="https://www.youtube.com/embed/live_stream?channel=UCQrSG7WE4zi7UMYsiFhNV9A&autoplay=1" 
+            frameborder="0" allowfullscreen 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+        </iframe>`;
+    showToast('Loading live stream...');
+}
+
+function updateCountdown() {
+    const now = new Date();
+    const watTime = new Date(now.toLocaleString("en-US", {timeZone: "Africa/Lagos"}));
+    const hours = watTime.getHours();
+    const watches = [6, 14, 22];
+    let nextWatch = watches.find(w => w > hours) || watches[0];
+    let hoursRemaining = nextWatch - hours;
+    if (nextWatch <= hours) hoursRemaining += 24;
+    
+    document.getElementById('countdown').textContent = 
+        `${hoursRemaining.toString().padStart(2,'0')}:${(59-watTime.getMinutes()).toString().padStart(2,'0')}:${(59-watTime.getSeconds()).toString().padStart(2,'0')}`;
+}
+
+// ============================================
+// TESTIMONY MODAL FUNCTIONS
+// ============================================
+
+function showTestimonyForm() {
+    const modal = document.getElementById('testimonyModal');
+    if (modal) {
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+            const nameInput = document.getElementById('testimonyName');
+            if (nameInput) nameInput.focus();
+        }, 100);
+    }
+    return false;
+}
+
+function closeTestimonyModal() {
+    const modal = document.getElementById('testimonyModal');
+    if (modal) {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+}
+
+function closeTestimonyModalOutside(event) {
+    if (event.target.id === 'testimonyModal') {
+        closeTestimonyModal();
+    }
+}
+
+// ============================================
+// BOOK CHECKOUT FUNCTIONS
+// ============================================
+
+function initiateCheckout(productId) {
+    currentProduct = PRODUCTS[productId];
+    if (!currentProduct) {
+        showToast('Product not found', true);
+        return;
+    }
+    
+    document.getElementById('checkoutModal').classList.add('show');
+    document.body.style.overflow = 'hidden';
+    
+    // Wait for PayPal SDK to be ready
+    if (typeof paypal !== 'undefined') {
+        renderPayPalButton();
+    } else {
+        document.getElementById('paypal-button-container').innerHTML = 
+            '<p style="color: #666;">Loading payment system...</p>';
+        // Retry after 1 second
+        setTimeout(renderPayPalButton, 1000);
+    }
+}
+
+function closeCheckoutModal() {
+    document.getElementById('checkoutModal').classList.remove('show');
+    document.body.style.overflow = '';
+    currentProduct = null;
+    // Clear PayPal button
+    document.getElementById('paypal-button-container').innerHTML = '';
+}
+
+function renderPayPalButton() {
+    const container = document.getElementById('paypal-button-container');
+    
+    if (typeof paypal === 'undefined') {
+        container.innerHTML = '<p style="color: red;">Payment system unavailable. Please refresh.</p>';
+        return;
+    }
+    
+    container.innerHTML = '';
+    
+    paypal.Buttons({
+        style: {
+            layout: 'vertical',
+            color: 'blue',
+            shape: 'rect',
+            label: 'paypal'
+        },
+        
+        createOrder: async function() {
+            const email = document.getElementById('buyerEmail').value.trim();
+            if (!email || !email.includes('@')) {
+                showToast('Please enter a valid email address', true);
+                throw new Error('Invalid email');
+            }
+            
+            try {
+                const response = await fetch(`${API_BASE}/createOrder`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        product: currentProduct,
+                        buyerEmail: email
+                    })
+                });
+                
+                const order = await response.json();
+                if (!response.ok) throw new Error(order.error || 'Failed to create order');
+                return order.id;
+                
+            } catch (error) {
+                console.error('Create order error:', error);
+                showToast('Failed to start checkout. Please try again.', true);
+                throw error;
+            }
+        },
+        
+        onApprove: async function(data) {
+            try {
+                const response = await fetch(`${API_BASE}/captureOrder`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        orderID: data.orderID
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showToast('✅ Payment successful! Check your email for the download link.');
+                    closeCheckoutModal();
+                    document.getElementById('buyerEmail').value = '';
+                } else {
+                    throw new Error(result.error || 'Payment failed');
+                }
+                
+            } catch (error) {
+                console.error('Capture error:', error);
+                showToast('Payment error. Please check your email or contact support.', true);
+            }
+        },
+        
+        onError: function(err) {
+            console.error('PayPal Error:', err);
+            showToast('Payment system error. Please try again.', true);
+        },
+        
+        onCancel: function() {
+            console.log('Payment cancelled by user');
+        }
+    }).render('#paypal-button-container');
+}
+
+// ============================================
+// FORM SUBMISSIONS
+// ============================================
+
+async function submitPrayer(event) {
+    event.preventDefault();
+    
+    const btn = document.getElementById('prayerSubmitBtn');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<span>⏳</span> Submitting...';
+    btn.disabled = true;
+    
+    try {
+        const response = await fetch(`${API_BASE}/submitPrayer`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: document.getElementById('prayerName').value,
+                email: document.getElementById('prayerEmail').value,
+                location: document.getElementById('prayerLocation').value,
+                category: document.getElementById('prayerCategory').value,
+                prayer_text: document.getElementById('prayerText').value,
+                is_public: document.getElementById('isPublic').checked
+            })
+        });
+        
+        const result = await response.json();
+        
+        if (!response.ok) throw new Error(result.error);
+        
+        showToast('🙏 Prayer request submitted! Our intercessors will stand with you.');
+        document.getElementById('prayerForm').reset();
+        
+        // Update stats
+        const statElement = document.getElementById('statPrayers');
+        const currentCount = parseInt(statElement.textContent.replace(/,/g, ''));
+        statElement.textContent = (currentCount + 1).toLocaleString();
+        
+        loadRecentPrayers();
+        
+    } catch (error) {
+        console.error('Error:', error);
+        showToast('Error submitting prayer. Please try again.', true);
+    } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+    }
+}
+
+async function submitTestimony(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    
+    const btn = document.getElementById('testimonySubmitBtn');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<span>⏳</span> Submitting...';
+    btn.disabled = true;
+    
+    try {
+        const response = await fetch(`${API_BASE}/submitTestimony`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                submitter_name: document.getElementById('testimonyName').value.trim(),
+                location: document.getElementById('testimonyLocation').value.trim(),
+                testimony_text: document.getElementById('testimonyText').value.trim(),
+                category: document.getElementById('testimonyCategory').value
+            })
+        });
+        
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.error);
+        
+        showToast('✨ Thank you! Your testimony has been submitted for review.');
+        closeTestimonyModal();
+        document.getElementById('testimonyForm').reset();
+        loadTestimonies();
+        
+    } catch (error) {
+        console.error('Error:', error);
+        showToast('Error submitting testimony. Please try again.', true);
+    } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+    }
+    
+    return false;
+}
+
+// ============================================
+// DATA LOADING
+// ============================================
+
+async function loadRecentPrayers() {
+    try {
+        const response = await fetch(`${API_BASE}/getPrayers`);
+        const result = await response.json();
+        
+        if (!response.ok) throw new Error(result.error);
+        
+        const recentDiv = document.getElementById('recentPrayers');
+        if (result.prayers && result.prayers.length > 0) {
+            let html = '';
+            result.prayers.forEach(prayer => {
+                const timeAgo = getTimeAgo(new Date(prayer.created_at));
+                const name = prayer.name ? prayer.name.split(' ')[0] + '.' : 'Anonymous';
+                const text = prayer.prayer_text.length > 60 
+                    ? prayer.prayer_text.substring(0, 60) + '...' 
+                    : prayer.prayer_text;
+                
+                html += `
+                    <div class="stat-box" style="text-align: left;">
+                        <div style="font-size: 0.875rem; color: var(--gray-500); margin-bottom: 8px;">Recent Prayer</div>
+                        <p style="font-style: italic; color: var(--gray-700);">"${text}"</p>
+                        <small style="color: var(--primary-blue);">— ${name} • ${timeAgo}</small>
+                    </div>`;
+            });
+            recentDiv.innerHTML = html;
+        }
+    } catch (error) {
+        console.error('Error loading prayers:', error);
+    }
+}
+
+async function loadTestimonies() {
+    try {
+        const response = await fetch(`${API_BASE}/getTestimonies`);
+        const result = await response.json();
+        
+        if (!response.ok) throw new Error(result.error);
+        
+        const container = document.getElementById('testimoniesContainer');
+        if (result.testimonies && result.testimonies.length > 0) {
+            container.innerHTML = result.testimonies.map(t => `
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"${t.testimony_text}"</p>
+                    <div class="testimonial-author">${t.submitter_name}</div>
+                    <div class="testimonial-location">${t.location || 'Location unknown'} • ${t.category}</div>
+                </div>`).join('');
+        }
+    } catch (error) {
+        console.error('Error loading testimonies:', error);
+    }
+}
+
+// ============================================
+// INITIALIZATION
+// ============================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Load data
+    loadRecentPrayers();
+    loadTestimonies();
+    
+    // Start countdown
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+            navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+        } else {
+            navbar.style.boxShadow = 'none';
+        }
+    });
+    
+    // Escape key closes modals
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeTestimonyModal();
+            closeCheckoutModal();
+        }
+    });
+    
+    // Close checkout modal on outside click
+    document.getElementById('checkoutModal').addEventListener('click', function(e) {
+        if (e.target === this) closeCheckoutModal();
+    });
+});
+    </script>
+</body>
+</html>

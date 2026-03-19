@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Your Book - The Frequency Live</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1E40AF;
+            --gray-50: #F8FAFC;
+            --gray-700: #334155;
+            --gray-900: #0F172A;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--gray-50);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .download-container {
+            background: white;
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+        h1 { 
+            color: var(--primary-blue); 
+            margin-bottom: 16px;
+            font-size: 1.5rem;
+        }
+        p { color: var(--gray-700); margin-bottom: 24px; }
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            background: var(--primary-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4); }
+        .error { color: #EF4444; }
+        .success { color: #10B981; }
+        .loading { color: var(--gray-700); }
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary-blue);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="download-container">
+        <div id="message">
+            <div class="spinner"></div>
+            <p class="loading">Verifying your download...</p>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+        
+        if (!token) {
+            document.getElementById('message').innerHTML = `
+                <h1 class="error">Invalid Download Link</h1>
+                <p>This download link appears to be invalid or has expired.</p>
+                <p>Please check your email for the correct link, or contact:</p>
+                <a href="mailto:admin@thefrequencylive.org" class="btn">Contact Support</a>
+            `;
+        } else {
+            fetch(`/.netlify/functions/verifyToken?token=${token}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.valid) {
+                        document.getElementById('message').innerHTML = `
+                            <h1 class="success">✅ Ready to Download</h1>
+                            <p><strong>${data.filename}</strong></p>
+                            <p>Click below to download your file. This link expires in 24 hours.</p>
+                            <a href="/.netlify/functions/serveDownload?token=${token}" 
+                               class="btn" 
+                               download>
+                               📥 Download Now
+                            </a>
+                            <p style="margin-top: 20px; font-size: 12px; color: #666;">
+                                Having issues? Contact admin@thefrequencylive.org
+                            </p>
+                        `;
+                    } else {
+                        document.getElementById('message').innerHTML = `
+                            <h1 class="error">Link Expired or Used</h1>
+                            <p>This download link has expired or has already been used.</p>
+                            <p>Each link can only be used once and expires after 24 hours.</p>
+                            <a href="mailto:admin@thefrequencylive.org" class="btn">Request New Link</a>
+                        `;
+                    }
+                })
+                .catch(err => {
+                    console.error('Error:', err);
+                    document.getElementById('message').innerHTML = `
+                        <h1 class="error">Verification Failed</h1>
+                        <p>Unable to verify your download link. Please try again or contact support.</p>
+                        <a href="mailto:admin@thefrequencylive.org" class="btn">Contact Support</a>
+                    `;
+                });
+        }
+    </script>
+</body>
+</html>

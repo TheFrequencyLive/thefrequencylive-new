@@ -1,0 +1,9 @@
+{
+  "name": "frequency-live",
+  "version": "1.0.0",
+  "description": "The Frequency Live - Global Prayer Movement",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "@sendgrid/mail": "^7.7.0"
+  }
+}
