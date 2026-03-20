@@ -6,9 +6,6 @@ const supabase = createClient(
 );
 
 exports.handler = async (event, context) => {
-  // Log incoming request
-  console.log('Event:', event.httpMethod, event.body);
-  
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
@@ -19,38 +16,41 @@ exports.handler = async (event, context) => {
 
   try {
     const data = JSON.parse(event.body);
-    console.log('Parsed data:', data);
     
-    // Build insert object dynamically (only include fields that exist)
-    const insertData = {
-      submitter_name: data.submitter_name,
-      testimony_text: data.testimony_text,
-      is_featured: false,
-      is_approved: false,
-      created_at: new Date().toISOString()
-    };
-    
-    // Only add location if provided
-    if (data.location) insertData.location = data.location;
-    
-    // Only add category if column exists (check first)
-    // Skip category for now to avoid error
-    
-    console.log('Inserting:', insertData);
+    // Validate required fields
+    if (!data.submitter_name || !data.testimony_text) {
+      return {
+        statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ error: 'Name and testimony are required' })
+      };
+    }
     
     const { data: result, error } = await supabase
       .from('testimonies')
-      .insert([insertData])
+      .insert([{
+        submitter_name: data.submitter_name,
+        email: data.email,             // NEW: Email for testimony
+        phone: data.phone,             // NEW: Phone number
+        location: data.location || 'Unknown',
+        testimony_text: data.testimony_text,
+        category: data.category || 'Other',
+        is_featured: false,
+        is_approved: false,
+        created_at: new Date().toISOString()
+      }])
       .select();
 
-    if (error) {
-      console.error('Supabase insert error:', error);
-      return {
-        statusCode: 500,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ error: error.message })
-      };
-    }
+    if (error) throw error;
+
+    // Notify admin of new testimony
+    await notifyAdmin('New Testimony Submitted', {
+      name: data.submitter_name,
+      email: data.email,
+      phone: data.phone,
+      category: data.category,
+      preview: data.testimony_text.substring(0, 100) + '...'
+    });
 
     return {
       statusCode: 200,
@@ -67,3 +67,7 @@ exports.handler = async (event, context) => {
     };
   }
 };
+
+async function notifyAdmin(subject, details) {
+  console.log(`📧 ADMIN NOTIFICATION: ${subject}`, details);
+}
