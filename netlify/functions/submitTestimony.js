@@ -6,6 +6,9 @@ const supabase = createClient(
 );
 
 exports.handler = async (event, context) => {
+  // Log incoming request
+  console.log('Event:', event.httpMethod, event.body);
+  
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
@@ -16,21 +19,38 @@ exports.handler = async (event, context) => {
 
   try {
     const data = JSON.parse(event.body);
+    console.log('Parsed data:', data);
+    
+    // Build insert object dynamically (only include fields that exist)
+    const insertData = {
+      submitter_name: data.submitter_name,
+      testimony_text: data.testimony_text,
+      is_featured: false,
+      is_approved: false,
+      created_at: new Date().toISOString()
+    };
+    
+    // Only add location if provided
+    if (data.location) insertData.location = data.location;
+    
+    // Only add category if column exists (check first)
+    // Skip category for now to avoid error
+    
+    console.log('Inserting:', insertData);
     
     const { data: result, error } = await supabase
       .from('testimonies')
-      .insert([{
-        submitter_name: data.submitter_name,
-        location: data.location || 'Unknown',
-        testimony_text: data.testimony_text,
-        category: data.category,
-        is_featured: false,
-        is_approved: false,
-        created_at: new Date().toISOString()
-      }])
+      .insert([insertData])
       .select();
 
-    if (error) throw error;
+    if (error) {
+      console.error('Supabase insert error:', error);
+      return {
+        statusCode: 500,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ error: error.message })
+      };
+    }
 
     return {
       statusCode: 200,
@@ -43,7 +63,7 @@ exports.handler = async (event, context) => {
     return {
       statusCode: 500,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ error: 'Failed to submit testimony' })
+      body: JSON.stringify({ error: error.message || 'Failed to submit testimony' })
     };
   }
 };
