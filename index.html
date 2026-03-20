@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- PayPal SDK for book purchases -->
-    <script src="https://www.paypal.com/sdk/js?client-id=ASctrc6u_C5jeRmI7Al1Vxdt0bD-rKkzrwFdThdvuwrbYzK5Q9mOWWd9niaTllVupct0KMAUjCyBX0ml&currency=USD&intent=capture" defer></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD&intent=capture" defer></script>
     
     <style>
         :root {
@@ -25,6 +25,8 @@
             --gray-100: #F1F5F9;
             --gray-200: #E2E8F0;
             --gray-300: #CBD5E1;
+            --gray-400: #94A3B8;
+            --gray-500: #64748B;
             --gray-600: #475569;
             --gray-700: #334155;
             --gray-800: #1E293B;
@@ -979,6 +981,20 @@
         
         .toast.show { display: flex; }
         
+        /* Privacy note styling */
+        .privacy-note {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            margin: 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .privacy-note::before {
+            content: '🔒';
+        }
+        
         @media (max-width: 768px) {
             .mobile-menu-btn { display: block; }
             
@@ -1212,11 +1228,12 @@
         </div>
     </section>
 
-    <!-- Prayer Section -->
+    <!-- Prayer Section - Updated with Phone -->
     <section class="prayer-section" id="prayer">
         <div class="container">
             <h2 class="text-center">Global Prayer Wall</h2>
             <p class="section-subtitle text-center">Submit your prayer request. Join intercessors worldwide standing in agreement.</p>
+            
             <form class="prayer-form" id="prayerForm" onsubmit="submitPrayer(event)">
                 <div class="form-row">
                     <div class="form-group">
@@ -1224,14 +1241,23 @@
                         <input type="text" id="prayerName" placeholder="Your name or Anonymous">
                     </div>
                     <div class="form-group">
-                        <label for="prayerEmail">Email (private)</label>
-                        <input type="email" id="prayerEmail" placeholder="For prayer updates">
+                        <label for="prayerEmail">Email <span style="color: var(--gray-500); font-size: 0.875rem;">(for updates)</span></label>
+                        <input type="email" id="prayerEmail" placeholder="your@email.com">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="prayerLocation">Location</label>
-                    <input type="text" id="prayerLocation" placeholder="City, Country">
+                
+                <!-- NEW: Phone Number Row -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="prayerPhone">Phone/WhatsApp <span style="color: var(--gray-500); font-size: 0.875rem;">(optional, for urgent follow-up)</span></label>
+                        <input type="tel" id="prayerPhone" placeholder="+1 (555) 123-4567 or WhatsApp">
+                    </div>
+                    <div class="form-group">
+                        <label for="prayerLocation">Location</label>
+                        <input type="text" id="prayerLocation" placeholder="City, Country">
+                    </div>
                 </div>
+                
                 <div class="form-group">
                     <label for="prayerCategory">Category</label>
                     <select id="prayerCategory">
@@ -1243,15 +1269,28 @@
                         <option value="Deliverance">Deliverance</option>
                     </select>
                 </div>
+                
                 <div class="form-group">
-                    <label for="prayerText">Prayer Request</label>
+                    <label for="prayerText">Prayer Request *</label>
                     <textarea id="prayerText" rows="4" placeholder="Share your prayer need..." required></textarea>
                 </div>
+                
                 <div class="form-group">
-                    <label><input type="checkbox" id="isPublic" checked style="margin-right: 8px;">Share on public prayer wall (first name only)</label>
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="checkbox" id="isPublic" checked style="width: auto;">
+                        <span>Share on public prayer wall (first name only)</span>
+                    </label>
                 </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;" id="prayerSubmitBtn"><span>🙏</span> Submit Prayer Request</button>
+                
+                <p class="privacy-note">
+                    Your contact information is private and only used for follow-up. We never share your details.
+                </p>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%;" id="prayerSubmitBtn">
+                    <span>🙏</span> Submit Prayer Request
+                </button>
             </form>
+            
             <div class="quick-stats" id="recentPrayers">
                 <div class="stat-box" style="text-align: left;">
                     <div style="font-size: 0.875rem; color: var(--gray-500); margin-bottom: 8px;">Recent Prayer</div>
@@ -1290,20 +1329,35 @@
         </div>
     </section>
 
-    <!-- Testimony Modal -->
+    <!-- Testimony Modal - Updated with Email & Phone -->
     <div id="testimonyModal" class="modal" onclick="closeTestimonyModalOutside(event)">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button type="button" class="close" onclick="closeTestimonyModal()" aria-label="Close modal">&times;</button>
             <h2 style="margin-bottom: 20px; color: var(--gray-900);">Share Your Testimony</h2>
+            
             <form id="testimonyForm" onsubmit="submitTestimony(event)">
                 <div class="form-group">
                     <label for="testimonyName">Your Name *</label>
                     <input type="text" id="testimonyName" required placeholder="Enter your name">
                 </div>
+                
+                <!-- NEW: Email Field -->
+                <div class="form-group">
+                    <label for="testimonyEmail">Email <span style="color: var(--gray-500); font-size: 0.875rem;">(for follow-up & verification)</span></label>
+                    <input type="email" id="testimonyEmail" placeholder="your@email.com">
+                </div>
+                
+                <!-- NEW: Phone Field -->
+                <div class="form-group">
+                    <label for="testimonyPhone">Phone/WhatsApp <span style="color: var(--gray-500); font-size: 0.875rem;">(optional)</span></label>
+                    <input type="tel" id="testimonyPhone" placeholder="+1 (555) 123-4567">
+                </div>
+                
                 <div class="form-group">
                     <label for="testimonyLocation">Your Location</label>
                     <input type="text" id="testimonyLocation" placeholder="City, Country">
                 </div>
+                
                 <div class="form-group">
                     <label for="testimonyCategory">Category *</label>
                     <select id="testimonyCategory" required>
@@ -1316,10 +1370,16 @@
                         <option value="Other">Other</option>
                     </select>
                 </div>
+                
                 <div class="form-group">
                     <label for="testimonyText">Your Testimony *</label>
                     <textarea id="testimonyText" rows="5" required placeholder="Share what God has done in your life..."></textarea>
                 </div>
+                
+                <p class="privacy-note">
+                    Your contact info helps us verify and celebrate with you. It's never shared publicly.
+                </p>
+                
                 <button type="submit" class="btn btn-primary" style="width: 100%;" id="testimonySubmitBtn">
                     <span>✨</span> Submit Testimony
                 </button>
@@ -1549,13 +1609,11 @@ function initiateCheckout(productId) {
     document.getElementById('checkoutModal').classList.add('show');
     document.body.style.overflow = 'hidden';
     
-    // Wait for PayPal SDK to be ready
     if (typeof paypal !== 'undefined') {
         renderPayPalButton();
     } else {
         document.getElementById('paypal-button-container').innerHTML = 
             '<p style="color: #666;">Loading payment system...</p>';
-        // Retry after 1 second
         setTimeout(renderPayPalButton, 1000);
     }
 }
@@ -1564,7 +1622,6 @@ function closeCheckoutModal() {
     document.getElementById('checkoutModal').classList.remove('show');
     document.body.style.overflow = '';
     currentProduct = null;
-    // Clear PayPal button
     document.getElementById('paypal-button-container').innerHTML = '';
 }
 
@@ -1619,9 +1676,7 @@ function renderPayPalButton() {
                 const response = await fetch(`${API_BASE}/captureOrder`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        orderID: data.orderID
-                    })
+                    body: JSON.stringify({ orderID: data.orderID })
                 });
                 
                 const result = await response.json();
@@ -1652,7 +1707,7 @@ function renderPayPalButton() {
 }
 
 // ============================================
-// FORM SUBMISSIONS
+// FORM SUBMISSIONS - Updated with Phone & Email
 // ============================================
 
 async function submitPrayer(event) {
@@ -1670,6 +1725,7 @@ async function submitPrayer(event) {
             body: JSON.stringify({
                 name: document.getElementById('prayerName').value,
                 email: document.getElementById('prayerEmail').value,
+                phone: document.getElementById('prayerPhone').value,      // NEW: Phone
                 location: document.getElementById('prayerLocation').value,
                 category: document.getElementById('prayerCategory').value,
                 prayer_text: document.getElementById('prayerText').value,
@@ -1715,6 +1771,8 @@ async function submitTestimony(event) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 submitter_name: document.getElementById('testimonyName').value.trim(),
+                email: document.getElementById('testimonyEmail').value.trim(),      // NEW: Email
+                phone: document.getElementById('testimonyPhone').value.trim(),        // NEW: Phone
                 location: document.getElementById('testimonyLocation').value.trim(),
                 testimony_text: document.getElementById('testimonyText').value.trim(),
                 category: document.getElementById('testimonyCategory').value
@@ -1736,8 +1794,6 @@ async function submitTestimony(event) {
         btn.innerHTML = originalText;
         btn.disabled = false;
     }
-    
-    return false;
 }
 
 // ============================================
@@ -1788,7 +1844,7 @@ async function loadTestimonies() {
                 <div class="testimonial-card">
                     <p class="testimonial-text">"${t.testimony_text}"</p>
                     <div class="testimonial-author">${t.submitter_name}</div>
-                    <div class="testimonial-location">${t.location || 'Location unknown'} • ${t.category}</div>
+                    <div class="testimonial-location">${t.location || 'Location unknown'}${t.category ? ' • ' + t.category : ''}</div>
                 </div>`).join('');
         }
     } catch (error) {
