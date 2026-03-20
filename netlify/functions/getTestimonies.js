@@ -1,11 +1,11 @@
-import { createClient } from '@supabase/supabase-js';
+const { createClient } = require('@supabase/supabase-js');
 
 const supabase = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_ANON_KEY
 );
 
-export default async (req, context) => {
+exports.handler = async (event, context) => {
   try {
     const { data: testimonies, error } = await supabase
       .from('testimonies')
@@ -17,16 +17,18 @@ export default async (req, context) => {
 
     if (error) throw error;
 
-    return new Response(JSON.stringify({ testimonies }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' }
-    });
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ testimonies })
+    };
 
   } catch (error) {
     console.error('Get testimonies error:', error);
-    return new Response(JSON.stringify({ error: 'Failed to load testimonies' }), { 
-      status: 500,
-      headers: { 'Content-Type': 'application/json' }
-    });
+    return {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'Failed to load testimonies' })
+    };
   }
 };
