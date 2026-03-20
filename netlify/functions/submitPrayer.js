@@ -17,11 +17,21 @@ exports.handler = async (event, context) => {
   try {
     const data = JSON.parse(event.body);
     
+    // Validate required fields
+    if (!data.prayer_text) {
+      return {
+        statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ error: 'Prayer request is required' })
+      };
+    }
+    
     const { data: result, error } = await supabase
       .from('prayer_requests')
       .insert([{
         name: data.name || 'Anonymous',
         email: data.email,
+        phone: data.phone,           // NEW: Phone number
         location: data.location || 'Unknown',
         category: data.category,
         prayer_text: data.prayer_text,
@@ -32,6 +42,15 @@ exports.handler = async (event, context) => {
       .select();
 
     if (error) throw error;
+
+    // Optional: Send notification email to admin
+    await notifyAdmin('New Prayer Request', {
+      name: data.name || 'Anonymous',
+      email: data.email,
+      phone: data.phone,
+      category: data.category,
+      prayer: data.prayer_text.substring(0, 100) + '...'
+    });
 
     return {
       statusCode: 200,
@@ -44,7 +63,14 @@ exports.handler = async (event, context) => {
     return {
       statusCode: 500,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ error: 'Failed to submit prayer' })
+      body: JSON.stringify({ error: error.message || 'Failed to submit prayer' })
     };
   }
 };
+
+// Admin notification helper
+async function notifyAdmin(subject, details) {
+  // Optional: Send email to admin@thefrequencylive.org
+  // Implementation depends on your email service
+  console.log(`📧 ADMIN NOTIFICATION: ${subject}`, details);
+}
